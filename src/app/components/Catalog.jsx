@@ -4,11 +4,15 @@ import PriceFilter from "./PriceFilter";
 import CategoryFilter from "./CategoryFilter";
 import ProductList from "./ProductList";
 import CartSummary from "./CartSummary";
+import StatusMessage from "./StatusMessage";
 
 export default function ProductCatalog() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [filters, setFilters] = useState({price:'', category: ''});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [empty, setEmpty] = useState(false)
 
     useEffect(() => {
             fetch('/api/products')
