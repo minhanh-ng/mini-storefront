@@ -1,12 +1,16 @@
 'use client';
-import SalesDashboard from "./Catalog";
 
- export default function ProductList(products, ) {
+ export default function ProductList({products, addToCart}) {
     return (
         <div> 
             <h2>Product List</h2>
             <ul>
-                <SalesDashboard />
+                {products.map(p => (
+                    <li key={p.id}> 
+                    {p.name}: ${p.price} ({p.category}) — Stock: {p.stock}
+                    <button onClick={() => addToCart(p)}>Add to cart</button> 
+                    </li>
+                ))}
             </ul>
         </div>
     )
