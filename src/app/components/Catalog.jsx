@@ -55,7 +55,6 @@ export default function ProductCatalog() {
             <PriceFilter value={filters.price} onChange={(v) => update('price', v)} />
             <CategoryFilter value={filters.category} onChange={(v) => update('category', v)} />
             <ProductList products={filteredProducts} addToCart={addToCart} />
-            <ProductCard name={products.name} price={products.price} />
             <h3>Cart: {cart.length} item(s)</h3>
         </div>
     );

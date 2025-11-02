@@ -1,16 +1,21 @@
 'use client';
-import { useState } from "react";
 
+export default function ProductCard({ product, addToCart }) {
+    const {name, price, category, stock} = product;
+    const OutOfStock = stock === 0 ;
 
-export default function ProductCard({ name, price }) {
-     const [products, setProducts] = useState((0));
     return (
     <div className="product-card">
         <h2>{name}</h2>
+        <p>Category: {category}</p>
         <p>Price: ${price}</p>
-        <button onClick={() => setCount(c=> c+1)}>Add Item</button>
-        <button onClick={() => setCount(c=> c-1)}>Remove Item</button>
-        <button onClick={() => setCount(0)}>Reset</button>
+        <p>Stock: {stock}</p>
+
+      {OutOfStock ? (
+        <button disabled style={{ cursor: 'not-allowed' }}>Out of Stock</button>
+        ) : (
+        <button onClick={() => addToCart(product)}>Add to Cart</button>
+        )}
     </div>
-);
- }
+  );
+}
