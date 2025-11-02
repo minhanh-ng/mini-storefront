@@ -29,7 +29,7 @@ export default function ProductCatalog() {
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({price:'', category: ''});
     const [cart, setCart] = useState([]);
-    
+
     useEffect(() => {
             fetch('/api/products')
             .then(r => r.json())
@@ -37,7 +37,20 @@ export default function ProductCatalog() {
             .catch(console.error);
         }, []);
 
+    useEffect(() => {
+  const interval = setInterval(() => {
+    setProducts(prev =>
+      prev.map(p => ({
+        ...p,
+        stock: Math.max(p.stock - Math.floor(Math.random() * 2), 0),
+      }))
+    );
+    }, 2000); 
+    return () => clearInterval(interval);
+    }, []);
+
     const update = (k,v) => setFilters(prev => ({...prev, [k]:v}));
+
     return (
         <div>
             <h2>Product Catalog</h2>
