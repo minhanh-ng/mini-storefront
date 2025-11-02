@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import PriceFilter from "./PriceFilter";
 import CategoryFilter from "./CategoryFilter";
 import ProductList from "./ProductList";
-import ProductCard from "./ProductCard";
+import CartSummary from "./CartSummary";
 
 export default function ProductCatalog() {
     const [products, setProducts] = useState([]);
@@ -55,6 +55,7 @@ export default function ProductCatalog() {
             <PriceFilter value={filters.price} onChange={(v) => update('price', v)} />
             <CategoryFilter value={filters.category} onChange={(v) => update('category', v)} />
             <ProductList products={filteredProducts} addToCart={addToCart} />
+            <CartSummary />
             <h3>Cart: {cart.length} item(s)</h3>
         </div>
     );
