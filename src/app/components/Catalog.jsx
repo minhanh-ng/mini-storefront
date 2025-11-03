@@ -63,6 +63,7 @@ export default function ProductCatalog() {
             <CategoryFilter value={filters.category} onChange={(v) => update('category', v)} />
             <ProductList products={filteredProducts} addToCart={addToCart} />
             <CartSummary cart={cart} setCart={setCart} />
+            <StatusMessage loading={loading} error={error} empty={empty} />
             <h3>Cart: {cart.length} item(s)</h3>
         </div>
     );
