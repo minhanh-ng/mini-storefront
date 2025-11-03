@@ -27,7 +27,7 @@ function resetCart() {
  
 // return 
 return (
-    <div style={{ border: '1px solid gray', padding: '10px', marginTop: '20px' }}>
+    <div className='cart-summary'>
       <h2>Cart Summary</h2>
       <p>Items: {itemCount}</p>
       <p>Total Price: ${totalPrice.toFixed(2)}</p>

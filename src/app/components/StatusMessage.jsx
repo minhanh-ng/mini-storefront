@@ -1,5 +1,5 @@
 'use client'
-
+// Shows correct message based on state (loading, error, or empty)
 export default function StatusMessage({loading, error, empty}) {
     if (loading) {
         return <p>Page is loading</p>

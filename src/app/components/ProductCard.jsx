@@ -10,7 +10,8 @@ export default function ProductCard({ product, addToCart }) {
         <p>Category: {category}</p>
         <p>Price: ${price}</p>
         <p>Stock: {stock}</p>
-
+        
+{/* Disable Add button if out of stock; show “Out of stock” */}
       {OutOfStock ? (
         <button disabled style={{ cursor: 'not-allowed' }}>Out of Stock</button>
         ) : (

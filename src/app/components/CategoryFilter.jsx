@@ -1,4 +1,5 @@
 'use client';
+// Controlled inputs that update parent state
 export default function CategoryFilter({value, onChange}) {
     return (
         <label>

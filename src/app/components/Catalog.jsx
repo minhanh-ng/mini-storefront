@@ -14,6 +14,7 @@ export default function ProductCatalog() {
     const [error, setError] = useState(null);
     const [empty, setEmpty] = useState(false)
 
+// Fetch API data
     useEffect(() => {
             fetch('/api/products')
             .then(r => r.json())
@@ -25,7 +26,7 @@ export default function ProductCatalog() {
         setCart([...cart, product]);
         };
 
-// interval stock updates with cleanup
+// Interval stock updates with cleanup
     useEffect(() => {
         const interval = setInterval(() => {
             setProducts(prev =>
@@ -41,6 +42,7 @@ export default function ProductCatalog() {
 
     const update = (k,v) => { setFilters(prev => ({...prev, [k]:v})) }; 
 
+// Filter
     let filteredProducts = products;
     if (filters.category !== '') {
     filteredProducts = filteredProducts.filter(p =>
@@ -53,9 +55,10 @@ export default function ProductCatalog() {
     );
     }
 
+// Return
     return (
-        <div>
-            <h2>Product Catalog</h2>
+        <div className="product-catalog">
+            <h1>Mini Storefront</h1>
             <PriceFilter value={filters.price} onChange={(v) => update('price', v)} />
             <CategoryFilter value={filters.category} onChange={(v) => update('category', v)} />
             <ProductList products={filteredProducts} addToCart={addToCart} />
