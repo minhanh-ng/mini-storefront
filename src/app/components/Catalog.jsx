@@ -26,7 +26,7 @@ export default function ProductCatalog() {
         setCart([...cart, product]);
         };
 
-// Interval stock updates with cleanup
+// Interval stock updates with cleanup: using setInterval()
     useEffect(() => {
         const interval = setInterval(() => {
             setProducts(prev =>
